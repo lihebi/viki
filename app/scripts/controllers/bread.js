@@ -14,6 +14,6 @@ angular.module('vikiApp')
       'AngularJS',
       'Karma'
     ];
-    bread.setPath('home/coding/latex/hello/world');
+    bread.setPath('index/coding/latex/hello/world');
     $scope.getPath = bread.getPath;
   });

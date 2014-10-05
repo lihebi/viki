@@ -27,7 +27,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/home/:name*', {
+      .when('/index/:name*', {
+        templateUrl: 'views/post.html',
+        controller: 'PostCtrl'
+      })
+      .when('/index', {
         templateUrl: 'views/post.html',
         controller: 'PostCtrl'
       })

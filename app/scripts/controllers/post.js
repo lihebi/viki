@@ -8,16 +8,18 @@
  * Controller of the vikiApp
  */
 angular.module('vikiApp')
-  .controller('PostCtrl', function ($scope, $routeParams, cache) {
+  .controller('PostCtrl', function ($scope, $routeParams, cache, ajax) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    var link = $routeParams.name;
+    console.log('start');
+    var link = $routeParams.name || 'index';
     var content = cache.get(link);
     if (!content) {
-      content = 'hello';
+      content = ajax.get(link);
+      content = '<b>Hello</b>';
       cache.add(link, content);
     } else {
       $scope.content = content;
