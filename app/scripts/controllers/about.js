@@ -1,3 +1,4 @@
+/* jshint unused: false */
 'use strict';
 
 /**
@@ -8,10 +9,17 @@
  * Controller of the vikiApp
  */
 angular.module('vikiApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('AboutCtrl', function ($scope, ajax) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    var callback = function(data) {
+      console.log(data);
+    };
+    var test = function() {
+      ajax.get('roadmap.json', callback);
+    };
+    $scope.test = test;
   });
