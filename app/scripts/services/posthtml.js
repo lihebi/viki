@@ -1,4 +1,4 @@
-/* global markdown */
+/* global marked */
 'use strict';
 
 /**
@@ -21,7 +21,7 @@ angular.module('vikiApp')
       },
       get: function(link, callback) {
         ajax.get('src/'+link, function(data) {
-          callback(markdown.toHTML(data));
+          callback(marked(data));
         });
       }
     };
