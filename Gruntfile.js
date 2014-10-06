@@ -339,6 +339,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
+            'CNAME',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/*'
@@ -384,6 +385,12 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    'gh-pages': {
+      options: {
+        base: '<%= yeoman.dist %>'
+      },
+      src: ['**']
     }
   });
 
