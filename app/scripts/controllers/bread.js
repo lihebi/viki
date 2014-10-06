@@ -20,4 +20,5 @@ angular.module('vikiApp')
     });
     bread.setPath('index/coding/latex.md/hello');
     $scope.getPath = bread.getPath;
+    $scope.isEmpty = bread.isEmpty;
   });

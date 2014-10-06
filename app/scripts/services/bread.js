@@ -45,6 +45,10 @@ angular.module('vikiApp')
       },
       getPath: function() {
         return results;
+      },
+      isEmpty: function() {
+        console.log(results);
+        return results[0].name === '';
       }
     };
   });

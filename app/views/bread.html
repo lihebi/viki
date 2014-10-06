@@ -1,5 +1,5 @@
 
-<ol ng-controller="BreadCtrl" class="breadcrumb">
+<ol ng-controller="BreadCtrl" class="breadcrumb" ng-hide="isEmpty()">
   <li ng-repeat="bread in getPath()" ng-class="{'active':$last}">
     <a ng-href="{{bread.link}}" ng-hide="$last">{{bread.name}}</a>
     <span ng-show="$last">{{bread.name}}</span>
