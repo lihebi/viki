@@ -15,7 +15,6 @@ angular.module('vikiApp')
       'Karma'
     ];
     $rootScope.$on('$routeChangeSuccess', function() {
-      console.log($location.path());
       bread.setPath($location.path().slice(1));
     });
     bread.setPath('index/coding/latex.md/hello');

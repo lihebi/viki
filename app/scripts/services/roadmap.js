@@ -17,11 +17,12 @@ angular.module('vikiApp')
     // FIXME this maybe unready when get function is called
     ajax.get('roadmap.json', function(data) {
       roadmap = data;
-      $rootScope.$emit('roadmapReady');
       console.log('ready');
+      $rootScope.$emit('roadmapReady');
     });
     var chainCheck = function(list, roadmap) {
       var tmp = roadmap;
+      if (Object.getOwnPropertyNames(tmp).length === 0) {return false;}
       if (list[0] === '') {
         list = [];
       }
@@ -33,6 +34,7 @@ angular.module('vikiApp')
     };
     var chainGet = function(list, roadmap) {
       var tmp = roadmap;
+      if (Object.getOwnPropertyNames(tmp).length === 0) {return false;}
       // for index page
       if (list[0] === '') {
         list = [];
