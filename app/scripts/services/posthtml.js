@@ -21,6 +21,7 @@ angular.module('vikiApp')
       },
       get: function(link, callback) {
         ajax.get('src/'+link, function(data) {
+          data = data.slice(1,-1).replace(/\\n/gi, '\n');
           callback(marked(data));
         });
       }
