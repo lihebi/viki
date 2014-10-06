@@ -9,7 +9,7 @@
  * Controller of the vikiApp
  */
 angular.module('vikiApp')
-  .controller('AboutCtrl', function ($scope, ajax) {
+  .controller('AboutCtrl', function ($scope, ajax, roadmap) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -19,7 +19,8 @@ angular.module('vikiApp')
       console.log(data);
     };
     var test = function() {
-      ajax.get('roadmap.json', callback);
+      // ajax.get('roadmap.json', callback);
+      console.log(roadmap.get('coding'));
     };
     $scope.test = test;
   });
