@@ -22,12 +22,17 @@ angular.module('vikiApp')
     });
     var chainGet = function(list, roadmap) {
       var tmp = roadmap;
+      // for index page
+      if (list[0] === '') {
+        list = [];
+      }
       var result = [];
-      for(var i=0;i<list.length;i++) {
+      var i;
+      for(i=0;i<list.length;i++) {
         tmp = tmp[list[i]];
       }
       var keys = Object.getOwnPropertyNames(tmp);
-      for(var i=0;i<keys.length;i++) {
+      for(i=0;i<keys.length;i++) {
         result.push({
           name: keys[i],
           link: list.concat(keys[i]).join('/'),

@@ -20,7 +20,7 @@ angular.module('vikiApp')
     };
     var test = function() {
       // ajax.get('roadmap.json', callback);
-      console.log(roadmap.get('coding'));
+      console.log(roadmap.get(''));
     };
     $scope.test = test;
   });
