@@ -8,12 +8,16 @@
  * Controller of the vikiApp
  */
 angular.module('vikiApp')
-  .controller('BreadCtrl', function ($scope, bread) {
+  .controller('BreadCtrl', function ($scope, $rootScope, $location, bread) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    bread.setPath('index/coding/latex/hello/world');
+    $rootScope.$on('$routeChangeSuccess', function() {
+      console.log($location.path());
+      bread.setPath($location.path().slice(1));
+    });
+    bread.setPath('index/coding/latex.md/hello');
     $scope.getPath = bread.getPath;
   });

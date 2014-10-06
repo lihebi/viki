@@ -14,7 +14,7 @@ angular.module('vikiApp')
     // ...
 
     var meaningOfLife = 42;
-    var base = 'http://github-raw-cors-proxy.herokuapp.com/lihebi/viki-md/master/';
+    var base = 'http://github-raw-cors-proxy.herokuapp.com/lihebi/viki-md/master';
 
     // Public API here
     return {

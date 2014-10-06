@@ -8,17 +8,17 @@
  * Factory in the vikiApp.
  */
 angular.module('vikiApp')
-  .factory('roadmap', function (ajax) {
+  .factory('roadmap', function ($rootScope, ajax) {
     // Service logic
     // ...
 
     var meaningOfLife = 42;
     var roadmap = {};
-    var ready = false;
     // FIXME this maybe unready when get function is called
     ajax.get('roadmap.json', function(data) {
       roadmap = data;
-      ready = true;
+      $rootScope.$emit('roadmapReady');
+      console.log('ready');
     });
     var chainCheck = function(list, roadmap) {
       var tmp = roadmap;
@@ -29,11 +29,7 @@ angular.module('vikiApp')
       for (i=0;i<list.length;i++) {
         tmp = tmp[list[i]];
       }
-      if (tmp===false) {
-        return false; // end file
-      } else {
-        return true;
-      }
+      return tmp === false;
     };
     var chainGet = function(list, roadmap) {
       var tmp = roadmap;
@@ -46,11 +42,14 @@ angular.module('vikiApp')
       for(i=0;i<list.length;i++) {
         tmp = tmp[list[i]];
       }
+      if (tmp === false) {
+        return false;
+      }
       var keys = Object.getOwnPropertyNames(tmp);
       for(i=0;i<keys.length;i++) {
         result.push({
           name: keys[i],
-          link: list.concat(keys[i]).join('/'),
+          link: '#/index/'+list.concat(keys[i]).join('/'),
           final: tmp[keys[i]] === false
         });
       }
@@ -62,7 +61,7 @@ angular.module('vikiApp')
       someMethod: function () {
         return meaningOfLife;
       },
-      check: function(route) {
+      isFinal: function(route) {
         return chainCheck(route.split('/'), roadmap);
       },
       get: function(route) {
