@@ -15,7 +15,8 @@ angular.module('vikiApp')
       'Karma'
     ];
     console.log('start');
-    var link = $routeParams.name || 'index';
+    var link = $routeParams.name || 'index/';
+    link = link.slice(6); // get rid of index/
     var content = cache.get(link);
     if (!content) {
       content = ajax.get(link);

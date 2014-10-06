@@ -20,6 +20,21 @@ angular.module('vikiApp')
       roadmap = data;
       ready = true;
     });
+    var chainCheck = function(list, roadmap) {
+      var tmp = roadmap;
+      if (list[0] === '') {
+        list = [];
+      }
+      var i;
+      for (i=0;i<list.length;i++) {
+        tmp = tmp[list[i]];
+      }
+      if (tmp===false) {
+        return false; // end file
+      } else {
+        return true;
+      }
+    };
     var chainGet = function(list, roadmap) {
       var tmp = roadmap;
       // for index page
@@ -46,6 +61,9 @@ angular.module('vikiApp')
     return {
       someMethod: function () {
         return meaningOfLife;
+      },
+      check: function(route) {
+        return chainCheck(route.split('/'), roadmap);
       },
       get: function(route) {
         return chainGet(route.split('/'), roadmap);
