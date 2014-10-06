@@ -1,1 +1,1 @@
-<p>This is the post view.</p> <ul ng-repeat="link in links"> <li><a ng-href="{{link.link}}">{{link.name}}</a></li> </ul> <p>{{link}}</p> <div ng-bind-html="content"></div>
+<ul ng-repeat="link in links"> <li><a class="btn" ng-class="{'btn-default':link.final, 'btn-success':!link.final}" ng-href="{{link.link}}">{{link.name}}</a></li> </ul> <div ng-bind-html="content"></div>
