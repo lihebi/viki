@@ -2,4 +2,6 @@
   <li><a class='btn' ng-class="{'btn-default':link.final, 'btn-success':!link.final}" ng-href="{{link.link}}">{{link.name}}</a></li>
 </ul>
 
+<a class="btn btn-success" ng-hide="github==''" ng-href="{{github}}" target="_blank">Edit</a>
+
 <div ng-bind-html="content"></div>
