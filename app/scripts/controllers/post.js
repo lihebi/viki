@@ -18,7 +18,10 @@ angular.module('vikiApp')
     var link = $routeParams.name || '';
 
     var fill = function() {
+      // github edit link
       $scope.github='';
+      // github new link
+      $scope.githubAdd='';
       $scope.links = roadmap.isFinal(link)?[]:roadmap.get(link);
       // $scope.content = roadmap.isFinal(link)?posthtml.get(link):'';
       if (roadmap.isFinal(link)) {
@@ -26,6 +29,8 @@ angular.module('vikiApp')
           $scope.content = data;
           $scope.github = 'http://github.com/lihebi/viki-md/edit/master/src/'+link;
         });
+      } else {
+        $scope.githubAdd = 'https://github.com/lihebi/viki-md/new/master/src/'+link;
       }
     };
     fill();

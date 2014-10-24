@@ -1,7 +1,12 @@
+<div id='edit-tool'>
+  <a class="btn btn-primary" ng-hide="github==''" ng-href="{{github}}">Edit</a>
+  <a class="btn btn-primary" ng-hide="githubAdd==''" ng-href="{{githubAdd}}">Add</a>
+</div>
+
 <ul ng-repeat="link in links">
   <li><a class='btn' ng-class="{'btn-default':link.final, 'btn-success':!link.final}" ng-href="{{link.link}}">{{link.name}}</a></li>
 </ul>
 
-<a class="btn btn-success" ng-hide="github==''" ng-href="{{github}}" target="_blank">Edit</a>
+
 
 <div ng-bind-html="content"></div>
