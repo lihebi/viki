@@ -1,4 +1,5 @@
 /* jshint unused:false */
+/* global $,hljs */
 'use strict';
 
 /**
@@ -28,6 +29,11 @@ angular.module('vikiApp')
         posthtml.get(link, function(data) {
           $scope.content = data;
           $scope.github = 'http://github.com/lihebi/viki-md/edit/master/src/'+link;
+          $('#post-content').append(data);
+          // hljs.initHighlightingOnLoad();
+         $('pre code').each(function(i, block) {
+           hljs.highlightBlock(block);
+         });
         });
       } else {
         $scope.githubAdd = 'https://github.com/lihebi/viki-md/new/master/src/'+link;
