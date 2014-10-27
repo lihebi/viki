@@ -1,4 +1,5 @@
 /* jshint unused: false */
+/* global $ */
 'use strict';
 
 /**
@@ -21,6 +22,7 @@ angular.module('vikiApp')
       someMethod: function () {
         return meaningOfLife;
       },
+      // Use $http service, very weird and even works bad at format.
       get: function(link, callback) {
         $http.get(base+'/'+link)
         .success(function(data, status, headers, config) {
@@ -28,6 +30,12 @@ angular.module('vikiApp')
         })
         .error(function(data, status, headers, config) {
           console.log('http error');
+        });
+      },
+      // much much better!!!!
+      get2: function(link, callback) {
+        $.get(base+'/'+link, function(data) {
+          callback(data);
         });
       }
     };
