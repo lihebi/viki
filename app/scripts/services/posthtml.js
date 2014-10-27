@@ -20,8 +20,10 @@ angular.module('vikiApp')
         return meaningOfLife;
       },
       get: function(link, callback) {
-        ajax.get2('src/'+link, function(data) {
-          // data = data.slice(1,-1).replace(/\\n/gi, '\n');
+        ajax.get('src/'+link, function(data) {
+          data = data.slice(1,-1).replace(/\\n/gi, '\n');
+          // an ugly solution
+          data = data.replace(/\\"/g, '"');
           callback(marked(data));
         });
       }
