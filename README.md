@@ -31,3 +31,7 @@ to build and deploy:
 grunt build
 grunt gh-pages
 ```
+
+## Change Code Theme
+
+In `bower_components/highlightjs/bower.json`, change `main` value.
