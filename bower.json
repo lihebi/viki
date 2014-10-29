@@ -13,7 +13,8 @@
     "angular-touch": "~1.2.0",
     "angular-route": "~1.2.0",
     "marked": "chjj/marked#master",
-    "highlightjs": "~8.3.0"
+    "highlightjs": "~8.3.0",
+    "toc": "~0.3.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

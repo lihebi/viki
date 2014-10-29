@@ -94,3 +94,19 @@ body {
 #edit-tool {
   padding-bottom: 3px;
 }
+
+// toc
+.toc-h1 {
+  margin-left: 0;
+}
+.toc-h2 {
+  margin-left: 1em;
+}
+.toc-h3 {
+  margin-left: 2em;
+}
+
+// header
+h2 {
+  border-bottom: black solid 1px;
+}
