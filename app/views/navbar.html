@@ -1,0 +1,19 @@
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">Hebi's Viki</a>
+  </div>
+  <div class="collapse navbar-collapse">
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" ng-model="search">
+      </div>
+    </form>
+  </div>
+</div>
+
+<ul ng-repeat="i in result">
+  <li><a ng-href="{{i.link}}">{{i.name}}</a></li>
+</ul>
+
+<!-- <p>{{out()}}</p> -->

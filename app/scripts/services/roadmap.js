@@ -57,6 +57,23 @@ angular.module('vikiApp')
       }
       return result;
     };
+    var search = function(text, roadmap, link) {
+      var result = [],i;
+      var keys = Object.getOwnPropertyNames(roadmap);
+      for(i=0;i<keys.length;i++) {
+        // console.log(keys);
+        if (keys[i].indexOf(text)!==-1) {
+          result.push({
+            name: keys[i],
+            link: '#/index'+link+'/'+keys[i]
+          });
+        }
+        if (roadmap[keys[i]] !== false) {
+          result = result.concat(search(text, roadmap[keys[i]], link+'/'+keys[i]));
+        }
+      }
+      return result;
+    };
 
     // Public API here
     return {
@@ -68,6 +85,17 @@ angular.module('vikiApp')
       },
       get: function(route) {
         return chainGet(route.split('/'), roadmap);
+      },
+      search: function(text) {
+        // no input, return empty
+        if (text === '') {
+          return [];
+        }
+        // return all items
+        if (text === '*') {
+          text=[];
+        }
+        return search(text, roadmap, '');
       }
     };
   });
