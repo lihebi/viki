@@ -23,7 +23,10 @@ angular.module('vikiApp')
         ajax.get('src/'+link, function(data) {
           data = data.slice(1,-1).replace(/\\n/gi, '\n');
           // an ugly solution
+          // for html "
           data = data.replace(/\\"/g, '"');
+          // for latex \
+          data = data.replace(/\\\\/g, '\\');
           callback(marked(data));
         });
       }
