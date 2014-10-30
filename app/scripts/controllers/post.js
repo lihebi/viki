@@ -1,5 +1,5 @@
 /* jshint unused:false */
-/* global $,hljs */
+/* global $,hljs,katex */
 'use strict';
 
 /**
@@ -29,12 +29,18 @@ angular.module('vikiApp')
         posthtml.get(link, function(data) {
           $scope.content = data;
           $scope.github = 'http://github.com/lihebi/viki-md/edit/master/src/'+link;
+          // append post content
           $('#post-content').append(data);
-          // hljs.initHighlightingOnLoad();
+          // highlight load
           $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
           });
+          // table of content render
           $('#toc').toc();
+          // katex render
+          $('.lang-katex').each(function(index) {
+            katex.render($(this).text(), $(this).get()[0]);
+          });
         });
       } else {
         $scope.githubAdd = 'https://github.com/lihebi/viki-md/new/master/src/'+link;
