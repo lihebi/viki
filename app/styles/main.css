@@ -82,7 +82,7 @@ body {
   padding-bottom: 3px;
 }
 
-// toc
+/*toc*/
 .toc-h1 {
   margin-left: 0;
 }
@@ -93,7 +93,11 @@ body {
   margin-left: 2em;
 }
 
-// header
+/*header*/
 h2 {
   border-bottom: black solid 1px;
+}
+
+h3 {
+  border-bottom: black dotted 1px;
 }
