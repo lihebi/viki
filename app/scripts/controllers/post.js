@@ -41,6 +41,9 @@ angular.module('vikiApp')
           $('.lang-katex').each(function(index) {
             katex.render($(this).text(), $(this).get()[0]);
           });
+          $('.katex').each(function(index) {
+            katex.render($(this).text(), $(this).get()[0]);
+          });
           $('table').addClass('table');
         });
       } else {
