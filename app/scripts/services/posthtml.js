@@ -26,7 +26,10 @@ angular.module('vikiApp')
           // for html "
           data = data.replace(/\\"/g, '"');
           // for latex \
-          data = data.replace(/\\\\/g, '\\');
+          // data = data.replace(/\\\\/g, '\\');
+          data = data.replace(/\$([^$]+)\$/g, '<span class="katex">'+'$1'+'</span>');
+          console.log(data);
+          console.log(marked(data));
           callback(marked(data));
         });
       }
