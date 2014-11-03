@@ -14,6 +14,11 @@ angular.module('vikiApp')
     // ...
 
     var meaningOfLife = 42;
+    var replacer = function(match, p) {
+      p = p.replace(/\n/g, '\\n');
+      console.log(p);
+      return '<span class="katex">'+p+'</span>';
+    };
     // Public API here
     return {
       someMethod: function () {
@@ -26,10 +31,7 @@ angular.module('vikiApp')
           // for html "
           data = data.replace(/\\"/g, '"');
           // for latex \
-          // data = data.replace(/\\\\/g, '\\');
-          data = data.replace(/\$([^$]+)\$/g, '<span class="katex">'+'$1'+'</span>');
-          console.log(data);
-          console.log(marked(data));
+          data = data.replace(/\$([^$]+)\$/g, replacer);
           callback(marked(data));
         });
       }
