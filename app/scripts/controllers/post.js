@@ -16,7 +16,16 @@ angular.module('vikiApp')
       'AngularJS',
       'Karma'
     ];
+    // extract link from route parameters
     var link = $routeParams.name || '';
+    // get title by the last item of link
+    var title = link.substr(link.lastIndexOf('/')+1);
+    // set Viki! as default title
+    if (title === '') {
+      title = 'Viki!';
+    }
+    // set title to rootScope
+    $rootScope.title = title;
 
     var fill = function() {
       // github edit link
