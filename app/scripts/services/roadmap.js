@@ -8,15 +8,16 @@
  * Factory in the vikiApp.
  */
 angular.module('vikiApp')
-  .factory('roadmap', function ($rootScope, ajax) {
+  .factory('roadmap', function ($rootScope, github) {
     // Service logic
     // ...
 
     var meaningOfLife = 42;
     var roadmap = {};
     // FIXME this maybe unready when get function is called
-    ajax.get('roadmap.json', function(data) {
-      roadmap = data;
+    github.get('roadmap.json', function(data) {
+      roadmap = JSON.parse(data);
+      // roadmap = data;
       console.log('ready');
       $rootScope.$emit('roadmapReady');
     });

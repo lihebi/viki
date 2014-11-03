@@ -9,7 +9,7 @@
  * Factory in the vikiApp.
  */
 angular.module('vikiApp')
-  .factory('posthtml', function (ajax) {
+  .factory('posthtml', function (github) {
     // Service logic
     // ...
 
@@ -25,12 +25,9 @@ angular.module('vikiApp')
         return meaningOfLife;
       },
       get: function(link, callback) {
-        ajax.get('src/'+link, function(data) {
-          data = data.slice(1,-1).replace(/\\n/gi, '\n');
-          // an ugly solution
-          // for html "
-          data = data.replace(/\\"/g, '"');
-          // for latex \
+        github.get('src/'+link, function(data) {
+          // data = window.atob(data.content);
+          // data = decodeURIComponent(escape(data));
           data = data.replace(/\$([^$]+)\$/g, replacer);
           callback(marked(data));
         });
