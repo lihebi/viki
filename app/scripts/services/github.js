@@ -1,4 +1,3 @@
-/* global escape */
 'use strict';
 
 /**
@@ -23,10 +22,12 @@ angular.module('vikiApp')
         return meaningOfLife;
       },
       get: function(path, callback) {
-        $http.get('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path)
+        $http.get('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path, {
+          'headers': {'Accept': 'application/vnd.github.v3.raw'}
+        })
         .success(function(data) {
-          data = window.atob(data.content);
-          data = decodeURIComponent(escape(data));
+          // data = window.atob(data.content);
+          // data = decodeURIComponent(escape(data));
           callback(data);
         });
       }

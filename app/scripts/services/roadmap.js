@@ -16,8 +16,8 @@ angular.module('vikiApp')
     var roadmap = {};
     // FIXME this maybe unready when get function is called
     github.get('roadmap.json', function(data) {
-      roadmap = JSON.parse(data);
-      // roadmap = data;
+      // roadmap = JSON.parse(data);
+      roadmap = data;
       console.log('ready');
       $rootScope.$emit('roadmapReady');
     });
