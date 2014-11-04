@@ -101,3 +101,9 @@ h2 {
 h3 {
   border-bottom: black dotted 1px;
 }
+
+h4 {
+  border: gray dashed 1px;
+  padding: 0 1px;
+  display: inline-block;
+}

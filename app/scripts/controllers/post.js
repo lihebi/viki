@@ -45,7 +45,7 @@ angular.module('vikiApp')
             hljs.highlightBlock(block);
           });
           // table of content render
-          $('#toc').toc();
+          $('#toc').toc({'selectors': 'h2,h3'});
           // katex render
           $('.lang-katex').each(function(index) {
             katex.render($(this).text(), $(this).get()[0]);
