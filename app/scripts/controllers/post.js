@@ -46,14 +46,11 @@ angular.module('vikiApp')
           });
           // table of content render
           $('#toc').toc({'selectors': 'h2,h3'});
+          $('table').addClass('table');
           // katex render
-          $('.lang-katex').each(function(index) {
-            katex.render($(this).text(), $(this).get()[0]);
-          });
           $('.katex').each(function(index) {
             katex.render($(this).text(), $(this).get()[0]);
           });
-          $('table').addClass('table');
         });
       } else {
         $scope.githubAdd = 'https://github.com/lihebi/viki-md/new/master/src/'+link;
