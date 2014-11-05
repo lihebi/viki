@@ -26,9 +26,7 @@ angular.module('vikiApp')
       },
       get: function(link, callback) {
         github.get('src/'+link, function(data) {
-          // data = window.atob(data.content);
-          // data = decodeURIComponent(escape(data));
-          data = data.replace(/\$([^$]+)\$/g, replacer);
+          data = data.replace(/\$([^\n]+)\$/g, replacer);
           callback(marked(data));
         });
       }
