@@ -15,8 +15,6 @@ angular.module('vikiApp')
 
     var meaningOfLife = 42;
     var replacer = function(match, p) {
-      p = p.replace(/\n/g, '\\n');
-      console.log(p);
       return '<span class="katex">'+p+'</span>';
     };
     // Public API here
@@ -26,7 +24,7 @@ angular.module('vikiApp')
       },
       get: function(link, callback) {
         github.get('src/'+link, function(data) {
-          data = data.replace(/\$([^\n]+)\$/g, replacer);
+          data = data.replace(/\$([^\$\n]+)\$/g, replacer);
           callback(marked(data));
         });
       }
